@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { ADD_TODO } from '../constants';
 
-const initialState = [];
+const initialState = {todos:[]};
 const addTodoReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TODO:
@@ -10,10 +10,11 @@ const addTodoReducer = (state = initialState, action) => {
       const { todos }= state
       console.log(todos)
       return {
-        todos: [...todos].concat({ ...action.payload }),
+        ...state, todos: [...todos].concat({ ...action.payload }),
       };
     default:
-      return { todos: state };
+      // console.log(state)
+      return { ...state };
   }
 };
 
