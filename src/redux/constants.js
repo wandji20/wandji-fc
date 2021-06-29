@@ -1,3 +1,4 @@
 const SHOW_FORM = 'SHOW_FORM';
+const ADD_TODO = 'ADD_TODO';
 
-export default SHOW_FORM;
+export { SHOW_FORM, ADD_TODO };

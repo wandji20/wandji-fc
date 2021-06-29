@@ -1,7 +1,8 @@
 import { createStore, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
-import showFormReducer from './reducers/showFormReducer';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import rootReducer from './reducers';
 
-const store = createStore(showFormReducer, applyMiddleware(logger));
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(logger)));
 
 export default store;
