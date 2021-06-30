@@ -7,8 +7,11 @@ import addPlayer from '../redux/actions/addPlayer';
 
 const NewPlayerForm = (props) => {
   const { showForm, toggle, addPlayer } = props;
-  const [date, setDate] = useState('');
-  const [content, setContent] = useState('');
+  const [name, setName] = useState('');
+  const [joined, setJoined] = useState('');
+  const [passing, setPassing] = useState(0);
+  const [goals, setGoals] = useState(0);
+  const [rating, setRating] = useState(0);
 
   const handleFormToggle = () => {
     showForm();
@@ -22,12 +25,24 @@ const NewPlayerForm = (props) => {
     setContent('');
   };
 
-  const handleDateChange = (e) => {
-    setDate(e.target.value);
+  const handleJoinedChange = (e) => {
+    setJoined(e.target.value);
   };
 
-  const handleContentChange = (e) => {
-    setContent(e.target.value);
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+
+  const handlePassingChange = (e) => {
+    setPassing(e.target.value);
+  };
+
+  const handleGoalsChange = (e) => {
+    setGoals(e.target.value);
+  };
+
+  const handleRatingChange = (e) => {
+    setRating(e.target.value);
   };
 
   return (
@@ -47,26 +62,62 @@ const NewPlayerForm = (props) => {
         onSubmit={handleFormSubmit}
       >
         <div className="form-group mt-3">
-          <label htmlFor="date">
-            Date
+          <label htmlFor="name">
+            Name
             <input
-              type="date"
+              type="text"
               className="form-control"
-              id="date"
-              value={date}
-              onChange={handleDateChange}
+              id="name"
+              value={name}
+              onChange={handleNameChange}
             />
           </label>
         </div>
         <div className="form-group mt-3">
-          <label htmlFor="content">
-            Content
+          <label htmlFor="joined">
+            Joined
             <input
-              type="text"
+              type="date"
               className="form-control"
-              id="content"
-              value={content}
-              onChange={handleContentChange}
+              id="joined"
+              value={joined}
+              onChange={handleJoinedChange}
+            />
+          </label>
+        </div>
+        <div className="form-group mt-3">
+          <label htmlFor="passing">
+            Passing Accuracy
+            <input
+              type="number"
+              className="form-control"
+              id="passing"
+              value={passing}
+              onChange={handlePassingChange}
+            />
+          </label>
+        </div>
+        <div className="form-group mt-3">
+          <label htmlFor="goals">
+            Goals
+            <input
+              type="number"
+              className="form-control"
+              id="goals"
+              value={goals}
+              onChange={handleGoalsChange}
+            />
+          </label>
+        </div>
+        <div className="form-group mt-3">
+          <label htmlFor="rating">
+            Rating
+            <input
+              type="number"
+              className="form-control"
+              id="rating"
+              value={rating}
+              onChange={handleRatingChange}
             />
           </label>
         </div>
