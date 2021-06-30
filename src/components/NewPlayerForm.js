@@ -65,7 +65,7 @@ const NewPlayerForm = (props) => {
              : 'btn btn-success w-25 align-self-end'
         }
       >
-        {toggle ? 'Close' : 'Create Todo'}
+        {toggle ? 'Close' : 'Add Player'}
       </button>
       <form
         className={toggle ? '' : 'd-none'}

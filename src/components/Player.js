@@ -6,7 +6,7 @@ const Player = (props) => {
     name, tackles, passing, goals, rating,
   } = props.player;
   return (
-    <article className="player d-flex flex-column border-0">
+    <article className="player d-flex flex-column border-0 my-3 bg-light">
       <h3 className="name ml-5">{name}</h3>
       <ul className="player-details d-flex list-style-none">
         <li className="d-inline-flex col-3 justify-content flex-column">

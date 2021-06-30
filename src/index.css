@@ -18,6 +18,10 @@ code {
 .container {
   max-width: 100%;
 }
+
+.player {
+  width: 97%;
+}
 /* 
 .nav-item {
   border: 1px solid;
