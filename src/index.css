@@ -11,6 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.home {
+  margin-left: 10px;
+}
 
 .remove-padding {
   padding: 0;
@@ -22,12 +25,7 @@ code {
 .player {
   width: 97%;
 }
-/* 
-.nav-item {
-  border: 1px solid;
+
+.name {
+  margin-left: 30px;
 }
-.navbar-nav {
-  justify-self: center;
-  align-self: center;
-  border: 1px solid;
-} */

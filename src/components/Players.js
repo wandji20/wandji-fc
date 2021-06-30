@@ -27,7 +27,6 @@ const Players = (props) => {
         tackles: "50",
       }
   ]
-  console.log(players)
   return (
     <section className="player container mx-auto mt-4 d-flex flex-column border-0">
       {
