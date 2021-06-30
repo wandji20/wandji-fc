@@ -1,7 +1,7 @@
 /* eslint-disable */
 import {SHOW_FORM} from '../constants';
 
-const initialState =  {toggle:true}
+const initialState =  {toggle:false}
 const showFormReducer = (state = initialState, action) => {
   switch (action.type) {
     case SHOW_FORM:

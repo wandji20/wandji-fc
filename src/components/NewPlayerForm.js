@@ -9,6 +9,7 @@ const NewPlayerForm = (props) => {
   const { showForm, toggle, addPlayer } = props;
   const [name, setName] = useState('');
   const [joined, setJoined] = useState('');
+  const [tackles, setTackles] = useState(0);
   const [passing, setPassing] = useState(0);
   const [goals, setGoals] = useState(0);
   const [rating, setRating] = useState(0);
@@ -19,18 +20,26 @@ const NewPlayerForm = (props) => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    const data = { date, content };
+    const data = { name, joined, tackles, passing, goals, rating  };
     addPlayer(data);
-    setDate('');
-    setContent('');
+    setName('');
+    setJoined('');
+    setTackles(0);
+    setPassing(0);
+    setGoals(0);
+    setRating(0);
+  };
+
+  const handleNameChange = (e) => {
+    setName(e.target.value);
   };
 
   const handleJoinedChange = (e) => {
     setJoined(e.target.value);
   };
 
-  const handleNameChange = (e) => {
-    setName(e.target.value);
+  const handleTacklesChange = (e) => {
+    setTackles(e.target.value);
   };
 
   const handlePassingChange = (e) => {
@@ -86,6 +95,18 @@ const NewPlayerForm = (props) => {
           </label>
         </div>
         <div className="form-group mt-3">
+          <label htmlFor="tackles">
+            Tackles
+            <input
+              type="number"
+              className="form-control"
+              id="tackles"
+              value={tackles}
+              onChange={handleTacklesChange}
+            />
+          </label>
+        </div>
+        <div className="form-group mt-3">
           <label htmlFor="passing">
             Passing Accuracy
             <input
@@ -109,6 +130,7 @@ const NewPlayerForm = (props) => {
             />
           </label>
         </div>
+        
         <div className="form-group mt-3">
           <label htmlFor="rating">
             Rating
