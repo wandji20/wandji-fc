@@ -9,10 +9,12 @@ const NewPlayerForm = (props) => {
   const { showForm, toggle, addPlayer } = props;
   const [name, setName] = useState('');
   const [joined, setJoined] = useState('');
-  const [tackles, setTackles] = useState(0);
+  const [pace, setPace] = useState(0);
   const [passing, setPassing] = useState(0);
-  const [goals, setGoals] = useState(0);
-  const [rating, setRating] = useState(0);
+  const [speed, setSpeed] = useState(0);
+  const [dribble, setDribble] = useState(0);
+  const [position, setPosition] = useState(0);
+  const [overall, setOverall] = useState(0);
 
   const handleFormToggle = () => {
     showForm();
@@ -20,39 +22,50 @@ const NewPlayerForm = (props) => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    const data = { name, joined, tackles, passing, goals, rating  };
+    const data = { name, joined, pace, passing, speed, dribble, position, overall };
+    console.log(data)
     addPlayer(data);
     showForm()
     setName('');
     setJoined('');
-    setTackles(0);
+    setPace(0);
+    setPosition(0);
     setPassing(0);
-    setGoals(0);
-    setRating(0);
+    setSpeed(0);
+    setDribble(0);
+    setOverall(0);
   };
 
   const handleNameChange = (e) => {
     setName(e.target.value);
   };
-
+  
   const handleJoinedChange = (e) => {
     setJoined(e.target.value);
   };
-
-  const handleTacklesChange = (e) => {
-    setTackles(e.target.value);
+  
+  const handlePaceChange = (e) => {
+    setPace(e.target.value);
   };
 
+  const handlePositionChange = (e) => {
+    setPosition(e.target.value);
+  };
+  
   const handlePassingChange = (e) => {
     setPassing(e.target.value);
   };
 
-  const handleGoalsChange = (e) => {
-    setGoals(e.target.value);
+  const handleSpeedChange = (e) => {
+    setSpeed(e.target.value);
   };
 
-  const handleRatingChange = (e) => {
-    setRating(e.target.value);
+  const handleDribbleChange = (e) => {
+    setDribble(e.target.value);
+  };
+
+  const handleOverallChange = (e) => {
+    setOverall(e.target.value);
   };
 
   return (
@@ -96,20 +109,32 @@ const NewPlayerForm = (props) => {
           </label>
         </div>
         <div className="form-group mt-3">
-          <label htmlFor="tackles">
-            Tackles
+          <label htmlFor="pace">
+            Pace
             <input
               type="number"
               className="form-control"
-              id="tackles"
-              value={tackles}
-              onChange={handleTacklesChange}
+              id="pace"
+              value={pace}
+              onChange={handlePaceChange}
+            />
+          </label>
+        </div>
+        <div className="form-group mt-3">
+          <label htmlFor="position">
+            Position
+            <input
+              type="number"
+              className="form-control"
+              id="position"
+              value={position}
+              onChange={handlePositionChange}
             />
           </label>
         </div>
         <div className="form-group mt-3">
           <label htmlFor="passing">
-            Passing Accuracy
+            Passing
             <input
               type="number"
               className="form-control"
@@ -120,27 +145,38 @@ const NewPlayerForm = (props) => {
           </label>
         </div>
         <div className="form-group mt-3">
-          <label htmlFor="goals">
-            Goals
+          <label htmlFor="speed">
+            Speed
             <input
               type="number"
               className="form-control"
-              id="goals"
-              value={goals}
-              onChange={handleGoalsChange}
+              id="speed"
+              value={speed}
+              onChange={handleSpeedChange}
             />
           </label>
         </div>
-        
         <div className="form-group mt-3">
-          <label htmlFor="rating">
-            Rating
+          <label htmlFor="dribble">
+            Dribble
             <input
               type="number"
               className="form-control"
-              id="rating"
-              value={rating}
-              onChange={handleRatingChange}
+              id="dribble"
+              value={dribble}
+              onChange={handleDribbleChange}
+            />
+          </label>
+        </div>     
+        <div className="form-group mt-3">
+          <label htmlFor="overall">
+            Overall
+            <input
+              type="number"
+              className="form-control"
+              id="overall"
+              value={overall}
+              onChange={handleOverallChange}
             />
           </label>
         </div>

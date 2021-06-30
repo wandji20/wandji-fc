@@ -35,3 +35,14 @@ code {
   margin-left: 5px;
   transition: 1s;
 }
+.ball-icon:hover {
+  transform: rotate(360deg);
+}
+
+.joined {
+  margin-left: 30px;
+}
+
+.joined-date {
+  margin-left: 10px;
+}
