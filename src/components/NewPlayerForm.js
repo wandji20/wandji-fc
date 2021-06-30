@@ -3,21 +3,21 @@ import React, { useState } from 'react';
 // import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import showForm from '../redux/actions/showForm';
-import addTodo from '../redux/actions/addTodo';
+import addPlayer from '../redux/actions/addPlayer';
 
-const todoForm = (props) => {
+const NewPlayerForm = (props) => {
+  const { showForm, toggle, addPlayer } = props;
   const [date, setDate] = useState('');
   const [content, setContent] = useState('');
 
   const handleFormToggle = () => {
-    props.showForm();
+    showForm();
   };
 
-  const { showForm, toggle, addTodo } = props;
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const data = { date, content };
-    addTodo(data);
+    addPlayer(data);
     setDate('');
     setContent('');
   };
@@ -30,7 +30,6 @@ const todoForm = (props) => {
     setContent(e.target.value);
   };
 
-  // console.log(props);
   return (
     <div className="container my-5 w-50 d-flex flex-column">
       <button
@@ -83,9 +82,9 @@ const mapDispatchToProps = (dispatch) => ({
   showForm: () => {
     dispatch(showForm());
   },
-  addTodo: (data) => {
-    dispatch(addTodo(data));
+  addPlayer: (data) => {
+    dispatch(addPlayer(data));
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(todoForm);
+export default connect(mapStateToProps, mapDispatchToProps)(NewPlayerForm);

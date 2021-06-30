@@ -1,11 +1,11 @@
 /* eslint-disable */
 import { Fragment } from 'react';
-import TodoForm from './TodoForm';
+import NewPlayerForm from './NewPlayerForm';
 
 function App() {
   return (
     <Fragment>
-      <TodoForm />
+      <NewPlayerForm />
     </Fragment>
   );
 }

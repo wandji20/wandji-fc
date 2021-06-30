@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import addTodoReducer from './addTodoReducer';
+import addPlayerReducer from './addPlayerReducer';
 import showFormReducer from './showFormReducer';
 
 const rootReducer = combineReducers(
   {
-    addTodo: addTodoReducer,
+    addPlayer: addPlayerReducer,
     showForm: showFormReducer,
   },
 );
