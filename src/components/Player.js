@@ -1,10 +1,15 @@
 /* eslint-disable */
 import React from 'react';
+import { CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 const Player = (props) => {
   const {
     name, tackles, passing, goals, rating,
   } = props.player;
+  const progressStyles = {
+    width: '30%'
+  }
   return (
     <article className="player d-flex flex-column border-0 my-3 bg-light">
       <h3 className="name ml-5">{name}</h3>
@@ -18,9 +23,8 @@ const Player = (props) => {
         </li>
         <li className="d-inline-flex col-3 justify-content flex-column">
           <span className="align-self-center">Pass Accuracy</span>
-          <span className="align-self-center">
-            {passing}
-            %
+          <span style= {progressStyles} className="align-self-center">
+            <CircularProgressbar value={(parseFloat(passing)/100)} maxValue={1} text={`${parseFloat(passing)}%`} />
           </span>
         </li>
         <li className="d-inline-flex col-3 justify-content flex-column">
@@ -29,9 +33,8 @@ const Player = (props) => {
         </li>
         <li className="d-inline-flex col-3 justify-content flex-column">
           <span className="align-self-center">Rating</span>
-          <span className="align-self-center">
-            {rating}
-            %
+          <span style= {progressStyles} className="align-self-center">
+            <CircularProgressbar value={(parseFloat(rating)/100)} maxValue={1} text={`${parseFloat(rating)}%`} />
           </span>
         </li>
       </ul>

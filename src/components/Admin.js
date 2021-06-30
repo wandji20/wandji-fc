@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import NewPlayerForm from './NewPlayerForm';
 
 const Admin = () => (
-  <div>
-    Admin Log in form
-  </div>
+  <>
+    <NewPlayerForm />
+  </>
 );
 
 export default Admin;
