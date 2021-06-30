@@ -1,9 +1,11 @@
 /* eslint-disable */
 import React from 'react';
 import Player from './Player';
+import {connect} from 'react-redux';
+import addPlayer from '../redux/actions/addPlayer';
 
-const Players = () => {
-  const players = [{id:1}]
+const Players = (props) => {
+  const players = props.players || []
   return (
     <section className="player container mx-auto mt-4 d-flex flex-column border-0">
       {
@@ -15,4 +17,10 @@ const Players = () => {
   );
 };
 
-export default Players;
+const mapStateToProps = (state) => {
+  return {
+    players: state.addPlayer.players
+  }
+}
+
+export default connect(mapStateToProps)(Players);

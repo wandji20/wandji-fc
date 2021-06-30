@@ -22,6 +22,7 @@ const NewPlayerForm = (props) => {
     e.preventDefault();
     const data = { name, joined, tackles, passing, goals, rating  };
     addPlayer(data);
+    showForm()
     setName('');
     setJoined('');
     setTackles(0);

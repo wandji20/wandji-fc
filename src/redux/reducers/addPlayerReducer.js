@@ -4,12 +4,14 @@ import { ADD_PLAYER } from '../constants';
 const initialState = { players: [] };
 const addPlayerReducer = (state = initialState, action) => {
   const { players } = state;
+  console.log(state)
   switch (action.type) {
     case ADD_PLAYER:
       const player = action.payload
       player.id = Date.now()
       return {
-        ...state, players: [...players].concat({ ...player }),
+        ...state,
+        players: [...players].concat({ ...player }),
       };
     default:
       return { ...state };
