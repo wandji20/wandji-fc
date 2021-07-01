@@ -1,12 +1,13 @@
+/* eslint-disable */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
 const Player = (props) => {
-  const { player } = props;
+  const { player, handleRemovePlayer } = props;
   const {
-    name, joined, pace, passing, speed, dribble, overall, position,
+    name, joined, pace, passing, speed, dribble, overall, position, id
   } = player;
   const progressStyles = {
     width: '30%',
@@ -58,17 +59,18 @@ const Player = (props) => {
           </span>
         </li>
       </ul>
-      <ul className=" my-4 player-controls d-flex justify-content-between list-style-none w-50">
+      <ul className=" my-4 player-controls d-flex justify-content-between list-style-none w-75">
         <button type="button" className="ml-2 btn btn-info">Terminate Contract</button>
         <button type="button" className="ml-2 btn btn-info">Modify Details</button>
         <button type="button" className="ml-2 btn btn-info">See More</button>
+        <button onClick={() => handleRemovePlayer(id)} type="button" className="ml-2 btn btn-danger">Terminate Contract</button>
       </ul>
     </article>
   );
 };
 
 Player.propTypes = {
-  player: PropTypes.objectOf(PropTypes.object),
+  player: PropTypes.objectOf(PropTypes.string),
 };
 
 Player.defaultProps = {

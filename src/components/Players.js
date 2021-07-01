@@ -2,51 +2,46 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Player from './Player';
-// import addPlayer from '../redux/actions/addPlayer';
+import removePlayer from '../redux/actions/removePlayer';
 
 const Players = (props) => {
-  let { players } = props;
-  players = players.length > 0
-    ? players
-    : [
-      {
-        dribble: '080',
-        id: '1625093886400',
-        joined: '18/01/2021',
-        name: 'Dave',
-        overall: '73',
-        pace: '80',
-        passing: '65',
-        speed: '69',
-        position: '75',
-      },
-      {
-        dribble: '080',
-        id: '1625093886200',
-        joined: '08/10/2020',
-        name: 'Luke',
-        overall: '69',
-        pace: '70',
-        passing: '65',
-        speed: '60',
-        position: '73',
-      },
-    ];
+  const { removePlayer, players } = props;
+
+  const handleRemovePlayer = (id) => {
+    console.log(id);
+    removePlayer(id);
+  };
+
   return (
     <section className="player container mx-auto mt-4 d-flex flex-column border-0">
       {
-        players.map((player) => <Player player={player} key={player.id} />)
+        players.map(
+          (player) => (
+            <Player
+              player={player}
+              handleRemovePlayer={handleRemovePlayer}
+              key={player.id}
+            />
+          ),
+        )
       }
     </section>
   );
 };
 
 const mapStateToProps = (state) => ({
-  players: state.addPlayer.players,
+  players: state.playerReducer.players,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  removePlayer: (id) => {
+    dispatch(removePlayer(id));
+  },
 });
 
 Players.propTypes = {
   players: PropTypes.arrayOf(PropTypes.object),
+  removePlayer: PropTypes.func.isRequired,
 };
 
 Players.defaultProps = {
@@ -54,4 +49,4 @@ Players.defaultProps = {
 };
 PropTypes.resetWarningCache();
 
-export default connect(mapStateToProps)(Players);
+export default connect(mapStateToProps, mapDispatchToProps)(Players);
