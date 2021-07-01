@@ -4,3 +4,5 @@ const removePlayer = (player) => ({
   type: REMOVE_PLAYER,
   payload: player.id,
 });
+
+export default removePlayer;
