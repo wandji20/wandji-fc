@@ -11,10 +11,38 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.home {
+  margin-left: 10px;
+}
 
 .remove-padding {
   padding: 0;
 }
 .container {
   max-width: 100%;
+}
+
+.player {
+  width: 97%;
+}
+
+.name {
+  margin-left: 30px;
+}
+
+.ball-icon {
+  color: #0d6efd;
+  margin-left: 5px;
+  transition: 1s;
+}
+.ball-icon:hover {
+  transform: rotate(360deg);
+}
+
+.joined {
+  margin-left: 30px;
+}
+
+.joined-date {
+  margin-left: 10px;
 }
