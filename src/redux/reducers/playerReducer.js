@@ -1,29 +1,33 @@
-/* eslint-disable */
-import { ADD_PLAYER, REMOVE_PLAYER, SHOW_FORM, initialState } from '../constants';
+// /* eslint-disable */
+import {
+  ADD_PLAYER, REMOVE_PLAYER, SHOW_FORM, initialState,
+} from '../constants';
 
 const playerReducer = (state = initialState, action) => {
   const { players } = state;
   switch (action.type) {
-    case SHOW_FORM:
+    case SHOW_FORM: {
       return {
         ...state,
         toggle: !state.toggle,
       };
-    case ADD_PLAYER:
+    }
+    case ADD_PLAYER: {
       const { player } = action.payload;
-      console.log(action.payload)
-      player.id = MAth.random();
+      player.id = Math.random();
       return {
         ...state,
         players: [...players].concat({ ...player }),
       };
-    case REMOVE_PLAYER:
+    }
+    case REMOVE_PLAYER: {
       const { id } = action.payload;
       const newPlayers = [...players].filter((player) => player.id !== id);
       console.log(id);
       return {
         ...state, players: newPlayers,
       };
+    }
     default:
       return { ...state };
   }
