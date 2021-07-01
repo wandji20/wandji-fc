@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import showForm from '../redux/actions/showForm';
 import addPlayer from '../redux/actions/addPlayer';
+// import removePlayer from '../redux/actions/removePlayer';
 
 const NewPlayerForm = (props) => {
   const { showForm, toggle, addPlayer } = props;
@@ -192,7 +193,7 @@ NewPlayerForm.propTypes = {
   addPlayer: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({ toggle: state.showForm.toggle });
+const mapStateToProps = (state) => ({ toggle: state.playerReducer.toggle });
 
 const mapDispatchToProps = (dispatch) => ({
   showForm: () => {

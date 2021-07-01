@@ -1,7 +1,7 @@
 import { ADD_PLAYER } from '../constants';
 
-const addPlayer = (data) => ({
+const addPlayer = (player) => ({
   type: ADD_PLAYER,
-  payload: data,
+  payload: { player },
 });
 export default addPlayer;
