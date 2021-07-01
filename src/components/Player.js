@@ -1,60 +1,60 @@
-/* eslint-disable */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
 const Player = (props) => {
-  console.log(props)
+  const { player } = props;
   const {
     name, joined, pace, passing, speed, dribble, overall, position,
-  } = props.player;
+  } = player;
   const progressStyles = {
-    width: '30%'
-  }
+    width: '30%',
+  };
   return (
     <article className="player d-flex flex-column border-0 my-3 bg-light">
-      <div className='d-flex flex-column'>
+      <div className="d-flex flex-column">
         <h3 className="name ml-5">{name}</h3>
-        <p className='d-flex ml-5 joined'>
+        <p className="d-flex ml-5 joined">
           <span>Joined :</span>
-          <span className='joined-date'>{joined}</span>
+          <span className="joined-date">{joined}</span>
         </p>
       </div>
       <ul className="player-details d-flex list-style-none">
         <li className="d-inline-flex col-2 justify-content-center flex-column">
           <span className="align-self-center">Pace</span>
-          <span style= {progressStyles} className="align-self-center">
-            <CircularProgressbar value={(parseFloat(pace)/100)} maxValue={1} text={`${parseFloat(pace)}%`} />
+          <span style={progressStyles} className="align-self-center">
+            <CircularProgressbar value={(parseFloat(pace) / 100)} maxValue={1} text={`${parseFloat(pace)}%`} />
           </span>
         </li>
         <li className="d-inline-flex col-2 justify-content-center flex-column">
           <span className="align-self-center">Position</span>
-          <span style= {progressStyles} className="align-self-center">
-            <CircularProgressbar value={(parseFloat(position)/100)} maxValue={1} text={`${parseFloat(position)}%`} />
+          <span style={progressStyles} className="align-self-center">
+            <CircularProgressbar value={(parseFloat(position) / 100)} maxValue={1} text={`${parseFloat(position)}%`} />
           </span>
         </li>
         <li className="d-inline-flex col-2 justify-content-center flex-column">
           <span className="align-self-center">Pass Accuracy</span>
-          <span style= {progressStyles} className="align-self-center">
-            <CircularProgressbar value={(parseFloat(passing)/100)} maxValue={1} text={`${parseFloat(passing)}%`} />
+          <span style={progressStyles} className="align-self-center">
+            <CircularProgressbar value={(parseFloat(passing) / 100)} maxValue={1} text={`${parseFloat(passing)}%`} />
           </span>
         </li>
         <li className="d-inline-flex col-2 justify-content-center flex-column">
           <span className="align-self-center">Speed</span>
-          <span style= {progressStyles} className="align-self-center">
-            <CircularProgressbar value={(parseFloat(speed)/100)} maxValue={1} text={`${parseFloat(speed)}%`} />
+          <span style={progressStyles} className="align-self-center">
+            <CircularProgressbar value={(parseFloat(speed) / 100)} maxValue={1} text={`${parseFloat(speed)}%`} />
           </span>
         </li>
         <li className="d-inline-flex col-2 justify-content-center flex-column">
           <span className="align-self-center">Dribble</span>
-          <span style= {progressStyles} className="align-self-center">
-            <CircularProgressbar value={(parseFloat(dribble)/100)} maxValue={1} text={`${parseFloat(dribble)}%`} />
+          <span style={progressStyles} className="align-self-center">
+            <CircularProgressbar value={(parseFloat(dribble) / 100)} maxValue={1} text={`${parseFloat(dribble)}%`} />
           </span>
         </li>
         <li className="d-inline-flex col-2 justify-content-center flex-column">
           <span className="align-self-center">Overall</span>
-          <span style= {progressStyles} className="align-self-center">
-            <CircularProgressbar value={(parseFloat(overall)/100)} maxValue={1} text={`${parseFloat(overall)}%`} />
+          <span style={progressStyles} className="align-self-center">
+            <CircularProgressbar value={(parseFloat(overall) / 100)} maxValue={1} text={`${parseFloat(overall)}%`} />
           </span>
         </li>
       </ul>
@@ -65,6 +65,14 @@ const Player = (props) => {
       </ul>
     </article>
   );
+};
+
+Player.propTypes = {
+  player: PropTypes.objectOf(PropTypes.object),
+};
+
+Player.defaultProps = {
+  player: {},
 };
 
 export default Player;

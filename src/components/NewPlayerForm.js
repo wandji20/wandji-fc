@@ -1,6 +1,5 @@
-/* eslint-disable */
 import React, { useState } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import showForm from '../redux/actions/showForm';
 import addPlayer from '../redux/actions/addPlayer';
@@ -22,10 +21,11 @@ const NewPlayerForm = (props) => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    const data = { name, joined, pace, passing, speed, dribble, position, overall };
-    console.log(data)
+    const data = {
+      name, joined, pace, passing, speed, dribble, position, overall,
+    };
     addPlayer(data);
-    showForm()
+    showForm();
     setName('');
     setJoined('');
     setPace(0);
@@ -39,11 +39,11 @@ const NewPlayerForm = (props) => {
   const handleNameChange = (e) => {
     setName(e.target.value);
   };
-  
+
   const handleJoinedChange = (e) => {
     setJoined(e.target.value);
   };
-  
+
   const handlePaceChange = (e) => {
     setPace(e.target.value);
   };
@@ -51,7 +51,7 @@ const NewPlayerForm = (props) => {
   const handlePositionChange = (e) => {
     setPosition(e.target.value);
   };
-  
+
   const handlePassingChange = (e) => {
     setPassing(e.target.value);
   };
@@ -167,7 +167,7 @@ const NewPlayerForm = (props) => {
               onChange={handleDribbleChange}
             />
           </label>
-        </div>     
+        </div>
         <div className="form-group mt-3">
           <label htmlFor="overall">
             Overall
@@ -184,6 +184,12 @@ const NewPlayerForm = (props) => {
       </form>
     </div>
   );
+};
+
+NewPlayerForm.propTypes = {
+  showForm: PropTypes.func.isRequired,
+  toggle: PropTypes.bool.isRequired,
+  addPlayer: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({ toggle: state.showForm.toggle });
