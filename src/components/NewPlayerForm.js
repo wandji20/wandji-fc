@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import showForm from '../redux/actions/showForm';
 import addPlayer from '../redux/actions/addPlayer';
-// import removePlayer from '../redux/actions/removePlayer';
 
 const NewPlayerForm = (props) => {
   const { showForm, toggle, addPlayer } = props;
@@ -23,7 +22,14 @@ const NewPlayerForm = (props) => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const data = {
-      name, joined, pace, passing, speed, dribble, position, overall,
+      name: name.toString(),
+      joined: joined.toString(),
+      pace: pace.toString(),
+      passing: passing.toString(),
+      speed: speed.toString(),
+      dribble: dribble.toString(),
+      position: position.toString(),
+      overall: overall.toString(),
     };
     addPlayer(data);
     showForm();

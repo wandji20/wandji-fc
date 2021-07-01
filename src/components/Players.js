@@ -8,7 +8,6 @@ const Players = (props) => {
   const { removePlayer, players } = props;
 
   const handleRemovePlayer = (id) => {
-    console.log(id);
     removePlayer(id);
   };
 

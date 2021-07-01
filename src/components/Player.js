@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { CircularProgressbar } from 'react-circular-progressbar';
@@ -7,7 +6,7 @@ import 'react-circular-progressbar/dist/styles.css';
 const Player = (props) => {
   const { player, handleRemovePlayer } = props;
   const {
-    name, joined, pace, passing, speed, dribble, overall, position, id
+    name, joined, pace, passing, speed, dribble, overall, position, id,
   } = player;
   const progressStyles = {
     width: '30%',
@@ -71,6 +70,7 @@ const Player = (props) => {
 
 Player.propTypes = {
   player: PropTypes.objectOf(PropTypes.string),
+  handleRemovePlayer: PropTypes.func.isRequired,
 };
 
 Player.defaultProps = {

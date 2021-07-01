@@ -1,4 +1,3 @@
-// /* eslint-disable */
 import {
   ADD_PLAYER, REMOVE_PLAYER, SHOW_FORM, initialState,
 } from '../constants';
@@ -14,7 +13,7 @@ const playerReducer = (state = initialState, action) => {
     }
     case ADD_PLAYER: {
       const { player } = action.payload;
-      player.id = Math.random();
+      player.id = Math.random().toString();
       return {
         ...state,
         players: [...players].concat({ ...player }),
@@ -23,7 +22,6 @@ const playerReducer = (state = initialState, action) => {
     case REMOVE_PLAYER: {
       const { id } = action.payload;
       const newPlayers = [...players].filter((player) => player.id !== id);
-      console.log(id);
       return {
         ...state, players: newPlayers,
       };
